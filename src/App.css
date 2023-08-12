@@ -1,38 +1,159 @@
-.App {
+body {
+    margin: 20px;
+    background-color: rgb(223, 223, 223);
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.days-weather {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-forecast {
+  padding-top: 10px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.day-of-week {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.date-header {
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.date-header h3 {
+  padding: 0;
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.one-weather-card {
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.488);
+  flex-direction: column;
+  background-color: white;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
+  border-radius: 5px;
+}
+
+.one-weather-card:hover {
+  transform-origin: bottom;
+  transform: scaleY(1.02);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.one-weather-card.active {
+  transform-origin: bottom;
+  transform: scaleY(1.05);
+  background-color: rgb(160, 218, 255);
+}
+
+.one-hour-weather-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.488);
+}
+
+.one-hour-weather-card:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.one-hour-weather-card:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.current-weather-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.488);
+  background-color: rgb(160, 218, 255);
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.date {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+.day {
+  font-weight: bold;
+}
+
+.temperature-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.temperature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  flex-direction: column;
+  text-align: center;
+  padding: 3px;
+}
+
+.temperature-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 36px;
+  color: #333;
+  margin: 0 5px;
+}
+
+.temperature-bar {
+  width: 5px;
+  height: 80px;
+  background-color: #ddd;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-end;
+  border: 1px solid rgba(0, 0, 0, 0.488);
 }
 
-.App-link {
-  color: #61dafb;
+.temperature-fill {
+  width: 100%;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.negative-temperature {
+  background-color: #00f;
 }
+
+.positive-temperature {
+  background-color: #f00;
+}
+
