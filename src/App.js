@@ -42,6 +42,9 @@ export default function App() {
   }
 
   async function handleSearchClick() {
+    if(city === ''){
+      return;
+    }
     setInitialData();
     try {
       await new Promise(resolve => setTimeout(resolve, 1000)); // debug only
